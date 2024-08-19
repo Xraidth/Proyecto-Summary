@@ -1,6 +1,6 @@
 from langchain_community.document_loaders import YoutubeLoader
 #Carga el video
-loader = YoutubeLoader.from_youtube_url("https://www.youtube.com/watch?v=9-GjBYvOFyw", 
+loader = YoutubeLoader.from_youtube_url("https://www.youtube.com/watch?v=Oa9JkUyh3uU", 
                                         add_video_info=True, language = ["es"])
 transcripcion = loader.load()
 
@@ -11,7 +11,14 @@ details = (
         f"{transcripcion[0].page_content}"
     )
 
+
 print(details)
+
+
+
+
+
+
 
 
 
