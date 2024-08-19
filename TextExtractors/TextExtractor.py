@@ -4,13 +4,14 @@ loader = YoutubeLoader.from_youtube_url("https://www.youtube.com/watch?v=9-GjBYv
                                         add_video_info=True, language = ["es"])
 transcripcion = loader.load()
 
-print(f"Video de: {transcripcion[0].metadata['author']}"+
-       f" con un tamaño de {transcripcion[0].metadata['length']} segundos")
-print(f"Título: {transcripcion[0].metadata['title']}")
-print("")
-print(transcripcion[0].page_content)
+details = (
+        f"Video de: {transcripcion[0].metadata['author']} "
+        f"con un tamaño de {transcripcion[0].metadata['length']} segundos\n"
+        f"Título: {transcripcion[0].metadata['title']}\n\n"
+        f"{transcripcion[0].page_content}"
+    )
 
-
+print(details)
 
 
 
