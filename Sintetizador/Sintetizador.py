@@ -1,26 +1,22 @@
-
 import nltk
 from nltk import sent_tokenize, word_tokenize
 from nltk.corpus import stopwords
 from collections import Counter
 import string
-
 import os
-
-
 from langchain_community.document_loaders import YoutubeLoader
-#Carga el video
+
+# Carga el video
 loader = YoutubeLoader.from_youtube_url("https://www.youtube.com/watch?v=Oa9JkUyh3uU", 
-                                        add_video_info=True, language = ["es"])
+                                        add_video_info=True, language=["es"])
 transcripcion = loader.load()
 
 details = (
-        f"Video de: {transcripcion[0].metadata['author']} "
-        f"con un tamaño de {transcripcion[0].metadata['length']} segundos\n"
-        f"Título: {transcripcion[0].metadata['title']}\n\n"
-        f"{transcripcion[0].page_content}"
-    )
-
+    f"Video de: {transcripcion[0].metadata['author']} "
+    f"con un tamaño de {transcripcion[0].metadata['length']} segundos\n"
+    f"Título: {transcripcion[0].metadata['title']}\n\n"
+    f"{transcripcion[0].page_content}"
+)
 
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -45,7 +41,7 @@ def resumen_hibrido(texto, num_oraciones=5):
     oraciones_combinadas = sorted(set(oraciones_clasificadas[:num_oraciones] + oraciones_heuristicas), key=lambda s: oraciones.index(s))
     
     # Limitar el resumen final a 500 caracteres
-    resumen_final = " ".join(oraciones_combinadas[:num_oraciones])[:300]
+    resumen_final = " ".join(oraciones_combinadas)[:2000]
     
     return resumen_final
 
