@@ -6,4 +6,3 @@
 #FALTA 5) tiempos = Comparator(resumen, textTime) <-Obtiene los tiempos para los recortes
 #FALTA 5) list_clips = Recortador(tiempos) <-Otiene los recortes de video
 #FALTA 6) videoResumen = BinderVideo(list_clips) <-Une los clips en uno
-
