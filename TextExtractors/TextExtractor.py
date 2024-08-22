@@ -1,4 +1,7 @@
 from langchain_community.document_loaders import YoutubeLoader
+import os
+import difflib
+
 #Carga el video
 loader = YoutubeLoader.from_youtube_url("https://www.youtube.com/watch?v=Oa9JkUyh3uU", 
                                         add_video_info=True, language = ["es"])
@@ -12,11 +15,8 @@ details = (
     )
 
 
+os.system('cls')
 print(details)
-
-
-
-
 
 
 

@@ -7,7 +7,7 @@ import os
 from langchain_community.document_loaders import YoutubeLoader
 
 # Carga el video
-loader = YoutubeLoader.from_youtube_url("https://www.youtube.com/watch?v=Oa9JkUyh3uU", 
+loader = YoutubeLoader.from_youtube_url("https://www.youtube.com/watch?v=UNlJp4KrHoA&t=496s", 
                                         add_video_info=True, language=["es"])
 transcripcion = loader.load()
 
@@ -17,6 +17,7 @@ details = (
     f"Título: {transcripcion[0].metadata['title']}\n\n"
     f"{transcripcion[0].page_content}"
 )
+
 
 nltk.download('punkt')
 nltk.download('stopwords')
@@ -46,5 +47,6 @@ def resumen_hibrido(texto, num_oraciones=5):
     return resumen_final
 
 texto = details
+resumen = resumen_hibrido(texto, 5)
 os.system('cls')
-print(resumen_hibrido(texto, 5))
+print(resumen)
